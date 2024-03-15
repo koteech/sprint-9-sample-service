@@ -31,7 +31,7 @@ class AppConfig:
         self.pg_warehouse_user = str(os.getenv('PG_WAREHOUSE_USER') or "")
         self.pg_warehouse_password = str(os.getenv('PG_WAREHOUSE_PASSWORD') or "")
 
-    def kafka_producer(self):
+    def kafka_producer(self) -> KafkaProducer:
         return KafkaProducer(
             self.kafka_host,
             self.kafka_port,
@@ -41,7 +41,7 @@ class AppConfig:
             self.CERTIFICATE_PATH
         )
 
-    def kafka_consumer(self):
+    def kafka_consumer(self) -> KafkaConsumer:
         return KafkaConsumer(
             self.kafka_host,
             self.kafka_port,
@@ -60,7 +60,7 @@ class AppConfig:
             self.CERTIFICATE_PATH
         )
 
-    def pg_warehouse_db(self):
+    def pg_warehouse_db(self) -> PgConnect:
         return PgConnect(
             self.pg_warehouse_host,
             self.pg_warehouse_port,
