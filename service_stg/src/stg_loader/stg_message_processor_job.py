@@ -21,7 +21,7 @@ class StgMessageProcessor:
         self._redis = redis_client
         self._stg_repository = stg_repository
         self._logger = logger
-        self._batch_size = 100
+        self._batch_size = batch_size
 
 
 
